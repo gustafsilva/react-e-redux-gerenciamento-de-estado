@@ -53,3 +53,10 @@ function goalReducer(state = [], action) {
       return state;
   }
 }
+
+function rootReducer(state = {}, action) {
+  return {
+    todos: todoReducer(state.todos, action),
+    goals: goalReducer(state.goals, action),
+  };
+}
