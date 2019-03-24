@@ -27,7 +27,7 @@ function createStore(reducer) {
 }
 
 /** App TODO (Reducer) */
-function todoReducer(state =[], action) {
+function todoReducer(state = [], action) {
   switch(action.type) {
     case 'ADD_TODO':
       return state.concat([action.todo]);
@@ -40,5 +40,16 @@ function todoReducer(state =[], action) {
       );
     default:
         return state;
+  }
+}
+/** APP Goal (Reducer) */
+function goalReducer(state = [], action) {
+  switch(action.type) {
+    case 'ADD_GOAL':
+      return state.concat([action.goal]);
+    case 'REMOVE_GOAL':
+      return state.filter(goal => goal.id !== action.id);
+    default:
+      return state;
   }
 }
